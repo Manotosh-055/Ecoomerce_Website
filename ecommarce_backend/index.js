@@ -18,7 +18,14 @@ import enqRouter from './routes/enqRoute.js';
 import uploadRouter from './routes/uploadRoute.js';
 
 dbConnect();
-app.use(cors());
+
+const corsOptions = {
+    origin: 'https://ecoomerce-website-frontend.vercel.app', // Allow only your frontend domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+    credentials: true, // Enable cookies to be sent along with requests
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
