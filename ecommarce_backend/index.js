@@ -18,6 +18,7 @@ import enqRouter from './routes/enqRoute.js';
 import uploadRouter from './routes/uploadRoute.js';
 // import morgan from "morgan";
 
+app.use(cors());
 
 const DATABASE_URL = process.env.MONGODB_URL;
 dbConnect(DATABASE_URL);
@@ -28,7 +29,6 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send("<h1>API is running Successfully</h1>");
 })
-app.use(cors());
 app.use('/api/user', authRouter);
 app.use('/api/product', productRouter);
 app.use('/api/blog', blogRouter);
