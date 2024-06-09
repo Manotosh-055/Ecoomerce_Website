@@ -19,13 +19,7 @@ import uploadRouter from './routes/uploadRoute.js';
 
 dbConnect();
 
-const corsOptions = {
-    origin: 'https://ecoomerce-website-frontend.vercel.app', // Allow only your frontend domain
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    credentials: true, // Enable cookies to be sent along with requests
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 
@@ -33,6 +27,11 @@ app.get('/', (req, res) => {
     res.send("<h1>API is running Successfully</h1>");
 })
 
+app.use(function (request, response, next) {
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 //app.use(morgan('dev'));
 
 app.use('/api/user', authRouter);
@@ -46,6 +45,6 @@ app.use('/api/color', colorRouter);
 app.use('/api/enquiry', enqRouter);
 app.use('/api/img', uploadRouter);
 
-app.listen(PORT,() => {
+app.listen(PORT, () => {
     console.log(`Server is running at port ${PORT}`);
 })
