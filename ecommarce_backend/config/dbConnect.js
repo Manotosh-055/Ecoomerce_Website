@@ -17,8 +17,8 @@ import mongoose from "mongoose";
    
 // }
 
-// For MongoDB Atlas
-// const DATABASE_URL = `process.env.MONGODB_URL`;
+//For MongoDB Atlas
+
 const dbConnect = async() => {
   try {
       const DB_OPTIONS = {

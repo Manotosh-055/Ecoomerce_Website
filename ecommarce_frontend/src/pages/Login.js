@@ -19,7 +19,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const authstate = useSelector((state) => state?.auth);
-    console.log(authstate);
+    //console.log(authstate);
     const formik = useFormik({
         initialValues: {
             email: '',

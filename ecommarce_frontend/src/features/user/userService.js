@@ -3,6 +3,7 @@ import { config } from '../../utils/axiosconfig';
 import { base_url } from '../../utils/base_url';
 
 const register = async (user) => {
+    console.log(user);
     const response = await axios.post(`${base_url}user/register`, user);
     if (response.data) {
         return response.data;
@@ -11,6 +12,7 @@ const register = async (user) => {
 }
 
 const login = async (user) => {
+    //console.log(user);
     const response = await axios.post(`${base_url}user/login`, user);
     if (response?.data?.token) {
         localStorage.setItem("customer", JSON.stringify(response?.data));

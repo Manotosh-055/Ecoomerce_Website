@@ -9,9 +9,11 @@ import sendEmail from "./emailCtrl.js";
 class userController {
     static UserReg = async (req, res) => {
         const { name, email, mobile, password, confirm_password } = req.body;
+        //console.log(req.body);
         const findUser = await User.findOne({ email: email });
         try {
             if (!findUser) {
+                //console.log("mobile:" + mobile);
                 if (mobile.toString().length == 10) {
                     if (password === confirm_password) {
                         const salt = await bcrypt.genSalt(15);
@@ -49,6 +51,7 @@ class userController {
 
     static UserLog = async (req, res) => {
         const { email, password } = req.body;
+        //console.log(email, password);
         const findUser = await User.findOne({ email: email });
         if (findUser) {
             const isMatch = await bcrypt.compare(password, findUser.password)

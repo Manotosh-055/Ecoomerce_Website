@@ -16,19 +16,16 @@ import couponRouter from './routes/couponRoute.js';
 import colorRouter from './routes/colorRoute.js';
 import enqRouter from './routes/enqRoute.js';
 import uploadRouter from './routes/uploadRoute.js';
-// import morgan from "morgan";
 
+dbConnect();
 app.use(cors());
-
-const DATABASE_URL = process.env.MONGODB_URL;
-dbConnect(DATABASE_URL);
 
 app.use(express.json());
 
+
+
 //app.use(morgan('dev'));
-app.get('/', (req, res) => {
-    res.send("<h1>API is running Successfully</h1>");
-})
+
 app.use('/api/user', authRouter);
 app.use('/api/product', productRouter);
 app.use('/api/blog', blogRouter);
