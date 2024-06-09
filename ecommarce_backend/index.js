@@ -22,7 +22,9 @@ app.use(cors());
 
 app.use(express.json());
 
-
+app.get('/', (req, res) => {
+    res.send("<h1>API is running Successfully</h1>");
+})
 
 //app.use(morgan('dev'));
 
