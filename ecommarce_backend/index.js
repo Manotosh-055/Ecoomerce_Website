@@ -27,11 +27,11 @@ app.get('/', (req, res) => {
     res.send("<h1>API is running Successfully</h1>");
 })
 
-app.use(function (request, response, next) {
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function (request, response, next) {
+//     response.header("Access-Control-Allow-Origin", "*");
+//     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 //app.use(morgan('dev'));
 
 app.use('/api/user', authRouter);
