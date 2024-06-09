@@ -25,7 +25,9 @@ dbConnect(DATABASE_URL);
 app.use(express.json());
 
 //app.use(morgan('dev'));
-
+app.get('/', (req, res) => {
+    res.send("<h1>API is running Successfully</h1>");
+})
 app.use(cors());
 app.use('/api/user', authRouter);
 app.use('/api/product', productRouter);
