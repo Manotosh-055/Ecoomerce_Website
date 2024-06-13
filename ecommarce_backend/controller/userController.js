@@ -220,7 +220,7 @@ class userController {
             try {
                 const secret = user._id + process.env.jwt_secret_key
                 const token = jwt.sign({ userId: user._id }, secret, { expiresIn: "15m" })
-                const resetURL = `Hi, Please follow this link to reset Your Password. This link is valid for 10 minutes from now. <a href='http://localhost:3000/reset-password/${user._id}/${token}'>Click here</a>`;
+                const resetURL = `Hi, Please follow this link to reset Your Password. This link is valid for 10 minutes from now. <a href='https://ecoomerce-website-frontend.vercel.app/reset-password/${user._id}/${token}'>Click here</a>`;
                 const data = {
                     to: email,
                     text: "Hey User, Here is the link to reset Your Password",
